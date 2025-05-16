@@ -56,6 +56,10 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
+@app.get("/")
+async def health_check():
+    return {"health": "OK"}
+
 @app.post("/ask_llm")
 async def ask_llm(request: QueryRequest):
     user_id = request.user_id
