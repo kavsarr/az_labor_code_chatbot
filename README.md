@@ -37,5 +37,6 @@ This is a legal chatbot built using Retrieval-Augmented Generation (RAG) with to
    ```
 
 ## Notes
+- You can find the chunked articles in "files/articles.json".
 - This project was developed and tested on a machine with RTX 4090 GPU — ensure sufficient GPU resources for local embedding inference.
 - All user chat histories are currently stored in-memory only (non-persistent).
