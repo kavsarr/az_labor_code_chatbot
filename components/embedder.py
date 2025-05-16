@@ -3,7 +3,7 @@ import numpy as np
 
 class BGEEmbedder:
     def __init__(self, model_name: str = "BAAI/bge-m3"):
-        self.model = SentenceTransformer(model_name)
+        self.model = SentenceTransformer(model_name, device="cpu")  # Force CPU
 
     def embed(self, sentences: list[str]) -> np.ndarray:
         return self.model.encode(sentences)
