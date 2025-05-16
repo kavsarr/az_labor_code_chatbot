@@ -11,6 +11,25 @@ This is a legal chatbot built using Retrieval-Augmented Generation (RAG) with to
 
 ## Getting Started
 
+**Create an .env file in the root directory with the following variable:**
+
+   ```ini
+   TOGETHER_API_KEY=your_api_key_here
+   ```
+
+### Running with Docker
+
+**Build the Docker image and start the service:**
+
+   ```bash
+   sudo docker-compose build
+   sudo docker-compose up
+   ```
+
+Note: During the first startup, the embedder model (bge-m3) will be downloaded. This may take some time.
+
+### Running Locally (Without Docker)
+
 1. **Create a virtual environment:**
 
    ```bash
@@ -24,19 +43,13 @@ This is a legal chatbot built using Retrieval-Augmented Generation (RAG) with to
    pip install -r requirements.txt
    ```
 
-3. **Create a .env file in the root directory with the following variable:**
-
-   ```ini
-   TOGETHER_API_KEY=your_api_key_here
-   ```
-
-4. **Run the app:**
+3. **Run the app:**
 
    ```bash
-   uvicorn chat:app --reload
+   python3 -m main.run
    ```
 
 ## Notes
-- You can find the chunked articles in "files/articles.json".
-- This project was developed and tested on a machine with RTX 4090 GPU — ensure sufficient GPU resources for local embedding inference.
+- Chunked legal articles are stored in: files/articles.json
+- The embedder model runs locally on CPU
 - All user chat histories are currently stored in-memory only (non-persistent).
